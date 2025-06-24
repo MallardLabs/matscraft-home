@@ -31,39 +31,49 @@ interface ServiceStatusProps {
  */
 export function ServiceStatus({ tags: customTags, refreshIntervalMs = 30_000 }: ServiceStatusProps) {
   const [status, setStatus] = useState<OverallStatus>("loading")
+  const componentId = useState(() => Math.random().toString(36).substr(2, 9))[0]
 
   useEffect(() => {
     let cancelled = false
 
     async function load() {
       try {
+        console.log(`[${componentId}] Starting load function`)
         // 1️⃣ Gather the list of tags to check
         let tags = customTags
         if (!tags || tags.length === 0) {
-          const tagRes = await fetch("https://status.mallardlabs.xyz/api/monitor", { cache: "no-store" })
+          console.log(`[${componentId}] Fetching tags from API`)
+          // Use our secure server-side API route instead of direct external calls
+          const tagRes = await fetch("/api/status", { cache: "no-store" })
           if (!tagRes.ok) throw new Error("Failed to fetch tag list")
           const tagJson = await tagRes.json()
 
-          // The API structure isn't documented, so we try a few common shapes.
+          // The API returns an array of monitor objects with tag fields
           if (Array.isArray(tagJson)) {
-            tags = tagJson as string[]
-          } else if (tagJson?.tags && Array.isArray(tagJson.tags)) {
-            tags = tagJson.tags as string[]
-          } else if (tagJson?.data?.tags && Array.isArray(tagJson.data.tags)) {
-            tags = tagJson.data.tags.map((t: any) => t.tag ?? t.name ?? t)
+            console.log(`[${componentId}] Raw tagJson from API:`, tagJson)
+            tags = tagJson.map((monitor: any) => {
+              const tag = monitor?.tag
+              console.log(`[${componentId}] Monitor:`, monitor?.name, 'Tag:', tag, 'Type:', typeof tag)
+              return tag
+            }).filter((tag): tag is string => typeof tag === 'string' && tag.length > 0)
           } else {
             tags = []
           }
+          
+          console.log(`[${componentId}] Final extracted tags:`, tags)
         }
 
         if (!tags || tags.length === 0) throw new Error("No tags returned from status API")
 
         // 2️⃣ Query every tag concurrently
+        console.log(`[${componentId}] About to query tags:`, tags)
         const tagResults = await Promise.all(
           tags.map(async (tag) => {
+            console.log(`[${componentId}] Processing tag:`, tag, 'Type:', typeof tag)
             try {
+              // Use our secure server-side API route
               const res = await fetch(
-                `https://status.mallardlabs.xyz/api/status?tag=${encodeURIComponent(tag)}`,
+                `/api/status?tag=${encodeURIComponent(tag)}`,
                 { cache: "no-store" }
               )
               if (!res.ok) return false
@@ -106,7 +116,7 @@ export function ServiceStatus({ tags: customTags, refreshIntervalMs = 30_000 }: 
   }, [customTags, refreshIntervalMs])
 
   const styles = {
-    loading: { color: "bg-gray-400", label: "…" },
+    loading: { color: "bg-gray-400", label: null },
     error: { color: "bg-gray-400", label: "ERROR" },
     up: { color: "bg-green-500", label: "UP" },
     degraded: { color: "bg-orange-400", label: "DEGRADED" },
@@ -118,7 +128,46 @@ export function ServiceStatus({ tags: customTags, refreshIntervalMs = 30_000 }: 
   return (
     <>
       <div className={`w-3 h-3 rounded-full ${color}`} />
-      <span className="text-sm text-gray-300">{label}</span>
+      {status === "loading" ? (
+        <div className="inline-flex items-center">
+          <svg 
+            className="animate-spin h-4 w-4 text-gray-300" 
+            xmlns="http://www.w3.org/2000/svg" 
+            fill="none" 
+            viewBox="0 0 24 24"
+          >
+            <circle 
+              className="opacity-25" 
+              cx="12" 
+              cy="12" 
+              r="10" 
+              stroke="currentColor" 
+              strokeWidth="4"
+            />
+            <path 
+              className="opacity-75" 
+              fill="currentColor" 
+              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+            />
+          </svg>
+        </div>
+      ) : (
+        <span className="text-sm text-gray-300">{label}</span>
+      )}
+      <a 
+        href="https://status.mallardlabs.xyz/" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="text-gray-300 hover:text-white transition-colors"
+        aria-label="View detailed status page"
+      >
+        <span 
+          className="material-symbols-outlined text-gray-300 text-base inline-flex items-center"
+          style={{ fontSize: '16px', transform: 'translateY(1px)' }}
+        >
+          open_in_new
+        </span>
+      </a>
     </>
   )
 } 

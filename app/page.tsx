@@ -2,7 +2,6 @@
 
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Github, MessageCircle } from "lucide-react"
 import { PlayerCount } from "@/components/player-count"
 import { ServiceStatus } from "@/components/service-status"
 
@@ -25,26 +24,63 @@ export default function Home() {
         {/* Header */}
         <header className="flex justify-between items-center p-6 md:p-8">
           <div className="flex items-center">
-            <Image
-              src="/mallardlabs-logo.svg"
-              alt="Mallard Labs"
-              width={120}
-              height={40}
-              className="h-8 md:h-10 w-auto"
-            />
+            <a 
+              href="https://mallardlabs.xyz" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:opacity-80 transition-opacity"
+            >
+              <Image
+                src="/mallardlabs-logo.svg"
+                alt="Mallard Labs"
+                width={120}
+                height={40}
+                className="h-8 md:h-10 w-auto"
+              />
+            </a>
           </div>
 
-          <div className="flex items-center space-x-4">
-            <a href="#" className="text-white hover:text-gray-300 transition-colors" aria-label="X (Twitter)">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <div className="flex items-center space-x-5">
+            <a 
+              href="https://x.com/MallardLabs" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-white hover:text-gray-300 transition-colors" 
+              aria-label="X (Twitter)"
+            >
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
               </svg>
             </a>
-            <a href="#" className="text-white hover:text-gray-300 transition-colors" aria-label="GitHub">
-              <Github size={24} />
+            <a 
+              href="https://discord.mezo.org" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-white hover:text-gray-300 transition-colors" 
+              aria-label="Discord"
+            >
+              <Image
+                src="/github.svg"
+                alt="Discord"
+                width={28}
+                height={28}
+                className="w-7 h-7 brightness-0 invert hover:opacity-75 transition-opacity"
+              />
             </a>
-            <a href="#" className="text-white hover:text-gray-300 transition-colors" aria-label="Discord">
-              <MessageCircle size={24} />
+            <a 
+              href="https://github.com/MallardLabs" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-white hover:text-gray-300 transition-colors" 
+              aria-label="GitHub"
+            >
+              <Image
+                src="/discord.svg"
+                alt="GitHub"
+                width={28}
+                height={28}
+                className="w-7 h-7 brightness-0 invert hover:opacity-75 transition-opacity"
+              />
             </a>
           </div>
         </header>
@@ -80,13 +116,15 @@ export default function Home() {
           </div>
 
           {/* Simplified Play Button */}
-          <Button
-            size="lg"
-            className="bg-gray-700/90 hover:bg-gray-600/90 text-white border border-gray-500/50 hover:border-gray-400/70 px-8 py-4 text-lg md:text-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-200 rounded-lg backdrop-blur-sm"
-            style={{ fontFamily: "Instrument Sans, sans-serif" }}
-          >
-            Play now
-          </Button>
+          <a href="https://wiki.matscraft.xyz">
+            <Button
+              size="lg"
+              className="bg-gray-700/90 hover:bg-gray-600/90 text-white border border-gray-500/50 hover:border-gray-400/70 px-8 py-4 text-lg md:text-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-200 rounded-lg backdrop-blur-sm"
+              style={{ fontFamily: "Instrument Sans, sans-serif" }}
+            >
+              Play now
+            </Button>
+          </a>
         </main>
 
         {/* Footer */}
@@ -110,21 +148,35 @@ export default function Home() {
               POWERED BY
             </div>
             <div className="flex items-center space-x-4">
-              <Image
-                src="/mezo.svg"
-                alt="Mezo"
-                width={120}
-                height={32}
-                className="h-6 md:h-8 w-auto"
-              />
+              <a 
+                href="https://mezo.org" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:opacity-80 transition-opacity"
+              >
+                <Image
+                  src="/mezo.svg"
+                  alt="Mezo"
+                  width={120}
+                  height={32}
+                  className="h-6 md:h-8 w-auto"
+                />
+              </a>
               <span className="text-2xl md:text-3xl font-light">+</span>
-              <Image
-                src="/drip.svg"
-                alt="Drip"
-                width={100}
-                height={32}
-                className="h-6 md:h-8 w-auto"
-              />
+              <a 
+                href="https://drip.re" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:opacity-80 transition-opacity"
+              >
+                <Image
+                  src="/drip.svg"
+                  alt="Drip"
+                  width={100}
+                  height={32}
+                  className="h-6 md:h-8 w-auto"
+                />
+              </a>
             </div>
           </div>
         </footer>
