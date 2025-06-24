@@ -7,10 +7,10 @@ import { ServiceStatus } from "@/components/service-status"
 
 export default function Home() {
   return (
-    <div className="min-h-screen relative overflow-hidden">
-      {/* Background Image */}
+    <div className="min-h-screen relative overflow-hidden bg-black">
+      {/* Background Image with fade-in */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-0 animate-[fadeIn_1s_ease-in-out_0.5s_forwards]"
         style={{
           backgroundImage: "url('/background.jpeg')",
         }}

@@ -6,9 +6,44 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "MATSCRAFT - Mine ores. Earn mats. Build cool stuff. Play with friends.",
-  description: "matsFi meets Minecraft. A blockchain-powered Minecraft experience.",
-    generator: 'v0.dev'
+  title: "Matscraft | Mallard Labs",
+  description: "Mine ores. Earn mats. Build cool stuff. Play with friends. matsFi meets Minecraft.",
+  generator: 'v0.dev',
+  
+  // Open Graph metadata for Facebook, Discord, LinkedIn
+  openGraph: {
+    title: "Matscraft | Mallard Labs",
+    description: "Mine ores. Earn mats. Build cool stuff. Play with friends. matsFi meets Minecraft.",
+    url: 'https://matscraft.xyz', // Replace with your actual domain
+    siteName: 'Matscraft',
+    images: [
+      {
+        url: '/matscraft-og-image.png', // You need to create this image (1200x630px)
+        width: 1200,
+        height: 630,
+        alt: 'Matscraft - matsFi meets Minecraft, by Mallard Labs',
+      }
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  
+  // Twitter Card metadata
+  twitter: {
+    card: 'summary_large_image',
+    title: "Matscraft | Mallard Labs",
+    description: "Mine ores. Earn mats. Build cool stuff. Play with friends. matsFi meets Minecraft.",
+    images: ['/matscraft-twitter-image.png'], // You need to create this image (1200x600px)
+    creator: '@MallardLabs', // Replace with your Twitter handle
+  },
+  
+  // Additional metadata
+  keywords: ['minecraft', 'blockchain', 'gaming', 'crypto', 'matsfi', 'mezo'],
+  authors: [{ name: 'Mallard Labs' }],
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function RootLayout({
