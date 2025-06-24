@@ -138,7 +138,7 @@ export default function Home() {
               <span className="text-sm md:text-base font-mono" style={{ fontFamily: "JetBrains Mono, monospace" }}>
                 MALLARD ONLINE SERVICES
               </span>
-              <ServiceStatus />
+              <ServiceStatus refreshIntervalMs={600_000} />
             </div>
           </div>
 
