@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     siteName: 'Matscraft',
     images: [
       {
-        url: '/matscraft-og-image.png', // You need to create this image (1200x630px)
+        url: 'https://matscraft.xyz/matscraft-og-image.png', // Absolute URL required for social platforms
         width: 1200,
         height: 630,
         alt: 'Matscraft - matsFi meets Minecraft, by Mallard Labs',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Matscraft | Mallard Labs",
     description: "Mine ores. Earn mats. Build cool stuff. Play with friends. matsFi meets Minecraft.",
-    images: ['/matscraft-twitter-image.png'], // You need to create this image (1200x600px)
+    images: ['https://matscraft.xyz/matscraft-twitter-image.png'], // Absolute URL required for Twitter
     creator: '@MallardLabs', // Replace with your Twitter handle
   },
   
