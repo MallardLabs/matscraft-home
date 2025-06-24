@@ -53,21 +53,6 @@ export default function Home() {
               </svg>
             </a>
             <a 
-              href="https://discord.mezo.org" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-white hover:text-gray-300 transition-colors" 
-              aria-label="Discord"
-            >
-              <Image
-                src="/github.svg"
-                alt="Discord"
-                width={28}
-                height={28}
-                className="w-7 h-7 brightness-0 invert hover:opacity-75 transition-opacity"
-              />
-            </a>
-            <a 
               href="https://github.com/MallardLabs" 
               target="_blank" 
               rel="noopener noreferrer"
@@ -75,8 +60,23 @@ export default function Home() {
               aria-label="GitHub"
             >
               <Image
-                src="/discord.svg"
+                src="/github.svg"
                 alt="GitHub"
+                width={28}
+                height={28}
+                className="w-7 h-7 brightness-0 invert hover:opacity-75 transition-opacity"
+              />
+            </a>
+            <a 
+              href="https://discord.mezo.org" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-white hover:text-gray-300 transition-colors" 
+              aria-label="Discord"
+            >
+              <Image
+                src="/discord.svg"
+                alt="Discord"
                 width={28}
                 height={28}
                 className="w-7 h-7 brightness-0 invert hover:opacity-75 transition-opacity"
