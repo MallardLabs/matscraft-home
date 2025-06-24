@@ -3,6 +3,8 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Github, MessageCircle } from "lucide-react"
+import { PlayerCount } from "@/components/player-count"
+import { ServiceStatus } from "@/components/service-status"
 
 export default function Home() {
   return (
@@ -11,8 +13,7 @@ export default function Home() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage:
-            "url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/enhanced_5ea308c0-a90f-452d-9a8d-84dcee79368d%20%281%29.png-oBwj4DfLsxRn4eABPbIKyqYpdIEHfR.jpeg')",
+          backgroundImage: "url('/background.jpeg')",
         }}
       />
 
@@ -25,7 +26,7 @@ export default function Home() {
         <header className="flex justify-between items-center p-6 md:p-8">
           <div className="flex items-center">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mallardlabs_logo-fNwQiDPep0Sd6n1JEOFXXj4r5eJ6qC.svg"
+              src="/mallardlabs-logo.svg"
               alt="Mallard Labs"
               width={120}
               height={40}
@@ -53,7 +54,7 @@ export default function Home() {
           {/* MATSCRAFT Logo - Further Reduced Size */}
           <div className="mb-6 md:mb-8">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo-bdW5FCWgaVM0Q7jCEjcFKOIVsnKQEk.png"
+              src="/matscraft-logo.png"
               alt="MATSCRAFT"
               width={500}
               height={125}
@@ -93,28 +94,13 @@ export default function Home() {
           {/* Left Side */}
           <div className="text-white space-y-2">
             <div className="flex items-center space-x-3">
-              <span className="text-sm md:text-base font-mono" style={{ fontFamily: "JetBrains Mono, monospace" }}>
-                // 3 PLAYERS ONLINE
-              </span>
+              <PlayerCount />
             </div>
             <div className="flex items-center space-x-3">
               <span className="text-sm md:text-base font-mono" style={{ fontFamily: "JetBrains Mono, monospace" }}>
                 MALLARD ONLINE SERVICES
               </span>
-              <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-              <span className="text-sm text-gray-300">UP</span>
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                className="text-gray-300"
-              >
-                <path d="M7 17L17 7" />
-                <path d="M7 7h10v10" />
-              </svg>
+              <ServiceStatus />
             </div>
           </div>
 
@@ -125,7 +111,7 @@ export default function Home() {
             </div>
             <div className="flex items-center space-x-4">
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mezo-koovPtt4EY25BBJqfPO69aehMkifZt.svg"
+                src="/mezo.svg"
                 alt="Mezo"
                 width={120}
                 height={32}
@@ -133,7 +119,7 @@ export default function Home() {
               />
               <span className="text-2xl md:text-3xl font-light">+</span>
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/drip-tUCH9wNe6XyNwJXuIPNFeBS6UcM7MG.svg"
+                src="/drip.svg"
                 alt="Drip"
                 width={100}
                 height={32}
