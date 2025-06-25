@@ -64,6 +64,11 @@ export default function RootLayout({
           rel="stylesheet" 
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=open_in_new" 
         />
+        <script 
+          defer 
+          src="https://cloud.umami.is/script.js" 
+          data-website-id="7b8e2f9f-e4d4-4e6c-899f-4eacf5cfc86d"
+        />
       </head>
       <body className={inter.className}>{children}</body>
     </html>
