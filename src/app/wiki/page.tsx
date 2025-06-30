@@ -9,13 +9,7 @@ export default async function WikiIndexPage() {
     return (
       <main className="flex-1 bg-secondary border-[3px] border-border-primary">
         <div className="text-center py-12">
-          <p className="text-gray-500 text-lg">
-            Belum ada dokumentasi tersedia.
-          </p>
-          <p className="text-gray-400 mt-2">
-            Tambahkan file MDX di folder <code>src/content/</code> untuk
-            memulai.
-          </p>
+          <p className="text-gray-500 text-lg">There's nothing here ser...</p>
         </div>
       </main>
     );
@@ -52,7 +46,7 @@ export default async function WikiIndexPage() {
                 <img
                   src={`/images/wiki/${item.slug}/thumb.png`}
                   alt="preview"
-                  className="border-[3px] border-border-primary max-w-full md:max-w-[350px] justify-start"
+                  className="border-[3px] border-border-primary max-w-full md:max-w-[400px] justify-start"
                 />
               </div>
             </div>
