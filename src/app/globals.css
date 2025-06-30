@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "MinecraftSeven";
+  src: url("../assets/fonts/minecraft/MinecraftSevenv4.woff2") format("woff2"),
+    url("../assets/fonts/minecraft/MinecraftSevenv4.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "MinecraftTen";
+  src: url("../assets/fonts/minecraft/MinecraftTenv2-Regular.woff2")
+      format("woff2"),
+    url("../assets/fonts/minecraft/MinecraftTenv2-Regular.woff2") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@theme {
+  --font-ten: MinecraftTen;
+  --font-seven: MinecraftSeven;
+  --color-border-primary: rgb(30, 30, 32);
+  --color-secondary: rgb(72, 73, 74);
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+  color: var(--color);
+  font-family: MinecraftSeven;
+}
+
+:root {
+  --background: rgb(53, 54, 55);
+  --secondary: rgb(72, 73, 74);
+  --color: white;
+}
+.hero {
+  position: relative;
+  height: 600px;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/images/background.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(2px);
+  z-index: -1;
+  animation: zoomPan 40s ease-in-out infinite alternate;
+}
+@media screen and (max-width: 600px) {
+  .hero::before {
+    animation: none;
+  }
+  .hero {
+    height: 500px;
+  }
+}
+@keyframes zoomPan {
+  0% {
+    background-size: 110%;
+    background-position: 30% 30%;
+  }
+  50% {
+    background-size: 150%;
+    background-position: 50% 50%;
+  }
+  100% {
+    background-size: 100%;
+    background-position: 100% 100%;
+  }
+}
+.dirtBg {
+  background-image: url("/images/dirt.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
