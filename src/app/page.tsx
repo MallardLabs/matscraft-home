@@ -16,13 +16,13 @@ export default function Home() {
             href="https://mallardlabs.xyz"
             className="font-ten text-base md:text-2xl flex flex-col"
           >
-            MalllardLabs
+            Mallard Labs
           </a>
           <div className="flex items-center gap-2">
             <a href="https://github.com/MallardLabs">
               <GithubIcon size={24} color="" strokeWidth={0.25} radius={1} />
             </a>
-            <a href="https://twitter.com/MallardLabs">
+            <a href="https://x.com/MallardLabs">
               <TwitterIcon size={24} color="" strokeWidth={0.25} radius={1} />
             </a>
             <a href="https://discord.mezo.org">
@@ -60,7 +60,7 @@ export default function Home() {
                 variant="primary"
                 className="w-full text-[10px] md:text-xs"
               >
-                Matscraft wiki
+                Matscraft Wiki
               </Button>
             </Link>
           </div>
