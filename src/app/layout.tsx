@@ -1,14 +1,12 @@
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
 import type { ReactNode } from "react"
 import "./globals.css"
 
-const inter = Inter({ subsets: ["latin"] })
+
 
 export const metadata: Metadata = {
   title: "Matscraft | Mallard Labs",
   description: "Mine ores. Earn mats. Build cool stuff. Play with friends. matsFi meets Minecraft.",
-  generator: 'v0.dev',
   
   // Open Graph metadata for Facebook, Discord, LinkedIn
   openGraph: {
@@ -56,21 +54,13 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
-        <link 
-          rel="stylesheet" 
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=open_in_new" 
-        />
         <script 
           defer 
           src="https://cloud.umami.is/script.js" 
           data-website-id="7b8e2f9f-e4d4-4e6c-899f-4eacf5cfc86d"
         />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={`antialiased`}>{children}</body>
     </html>
   )
 }
